@@ -24,6 +24,8 @@ public class main {
 			}
 		}
 		
+		
+		
 	}
 	public static void printArray(int[][] array) {
 		for(int i = 0; i < rows; i++) {
