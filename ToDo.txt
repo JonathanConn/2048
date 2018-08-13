@@ -3,12 +3,12 @@ V1 console only
 -add num 2-4 -> Done
 -functionality for sliding
 	-horizontal sliding
-	-vertical sliding
+	-vertical sliding -> Halfway done (only downward sliding done)
 	-combine when sliding
 		-left
 		-right
 		-up
-		-down
+		-down -> Done
 
 -winning screen
 -score tracker 
