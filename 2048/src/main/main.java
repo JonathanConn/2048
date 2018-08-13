@@ -41,10 +41,10 @@ public class main {
 				board[randomY][randomX] = getNum();
 				succuss = true;
 			}
-			
 		}while(!succuss);
-		
 	}
+	
+	
 	
 	/*
 	 * printing the board formatted for bug fixing
