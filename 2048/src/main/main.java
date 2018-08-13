@@ -1,8 +1,16 @@
+
 package main;
 //test
 
 import java.util.*;
-
+/**Simulates the famous "2048" game
+ * 
+ * @author Jonathan Conn
+ * @author Randy Perkins
+ * "2048 is a single-player sliding block puzzle game designed by Gabriele Cirulli.
+ *  The game's objective is to slide numbered tiles on a grid to combine them to create a tile with the number 2048"(from 2048 wikipedia)
+ * 
+ */
 public class main {
 	//declaring the board 4x4 
 	public static int rows = 4, columns = 4;
@@ -13,8 +21,9 @@ public class main {
 		printArray(board);
 		addNum();
 	}
-	/*
-	 * generating a random 2 or 4 
+	/** Randomly generates and integer that is 2 or 4
+	 * 
+	 * @return Random integer either 2 or 4
 	 */
 	public static int getNum() {
 		int newNumber;
@@ -22,8 +31,8 @@ public class main {
 		else newNumber = 4;
 		return newNumber;
 	}
-	/*
-	 * finding a random spot to add the new 2 or 4
+	/**Picks a random spot on the game board to add a new 2 or 4
+	 * 
 	 */
 	public static void addNum() {
 		boolean succuss = false;
@@ -46,8 +55,9 @@ public class main {
 	
 	
 	
-	/*
-	 * printing the board formatted for bug fixing
+	/**Prints the current board
+	 * 
+	 * @param array The board in array form
 	 */
 	public static void printArray(int[][] array) {
 		for(int i = 0; i < rows; i++) {
