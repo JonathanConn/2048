@@ -11,7 +11,7 @@ public class main {
 	
 	public static void main(String[] args) {
 		printArray(board);
-		addNum(board,getNum());
+		addNum();
 	}
 	/*
 	 * generating a random 2 or 4 
@@ -25,32 +25,25 @@ public class main {
 	/*
 	 * finding a random spot to add the new 2 or 4
 	 */
-	public static void addNum(int[][] array, int num) {
-		num = getNum();
+	public static void addNum() {
+		boolean succuss = false;
 		
-		int xDecision, yDecision;
+		int randomX, randomY;
+		int max = 3;
+		int min = 0;
+		int range = max - min +1;
 		
-		ArrayList<Integer> xCord = new ArrayList();
-		ArrayList<Integer> yCord = new ArrayList();
-		
-		for(int i = 0; i < rows; i++) {
-			for( int j = 0; j < columns; j++) {
-				if(array[i][j] == 0) {
-					xCord.add(j);
-					yCord.add(i);
-				}
+		do {
+			randomX = (int)(Math.random() * range ) + min;
+			randomY = (int)(Math.random() * range ) + min;
+			
+			if(board[randomY][randomX] == 0) {
+				board[randomY][randomX] = getNum();
+				succuss = true;
 			}
-		}	
+			
+		}while(!succuss);
 		
-
-//		for(int i = 0; i <  xCord.size();i++) {
-//			System.out.print("\n"+xCord.get(i)+"\t"+yCord.get(i));
-//		}
-		
-		xDecision = (int)Math.random() * ((xCord.size() - 0) + 1);
-		yDecision = (int)Math.random() * ((yCord.size() - 0) + 1);
-		
-		System.out.println(xDecision +"\n"+yDecision);
 	}
 	
 	/*
