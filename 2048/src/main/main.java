@@ -20,6 +20,7 @@ public class main {
 	public static void main(String[] args) {
 		addNum();
 		printArray(board);
+		
 		Scanner scan = new Scanner(System.in);
 		do {
 			System.out.println("Type '1' to add another cell");

@@ -1,11 +1,15 @@
 V1 console only
 
 -add num 2-4 -> Done
--combine when sliding
-	-left
-	-right
-	-up
-	-down
+-functionality for sliding
+	-horizontal sliding
+	-vertical sliding
+	-combine when sliding
+		-left
+		-right
+		-up
+		-down
+
 -winning screen
 -score tracker 
 
