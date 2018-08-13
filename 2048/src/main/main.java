@@ -1,9 +1,8 @@
 package main;
 //test
-=======
+
 import java.util.*;
 
->>>>>>> 77119e59843d8f448dd11565b292d84532787ab6
 public class main {
 	//declaring the board 4x4 
 	public static int rows = 4, columns = 4;
