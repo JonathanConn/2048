@@ -24,10 +24,15 @@ public class main {
 		Scanner scan = new Scanner(System.in);
 		do {
 			System.out.println("Type '1' to add another cell");
-			System.out.println("Type '2'to stop ");
+			System.out.println("Type '2'to move down ");
+			System.out.println("Type '3'to stop");
 			
-			if(scan.nextLine().equals("1")) {
+			String input = scan.nextLine();
+			if(input.equals("1")) {
 				addNum();
+				printArray(board);
+			}else if(input.equals("2")) {
+				moveEverythingDownward();
 				printArray(board);
 			}else {
 				break;
@@ -68,6 +73,77 @@ public class main {
 			}
 		}while(!succuss);
 	}
+	
+	/**Moves all the cells downward and combines the necessary cells(The ones that are the same) together
+	 * 
+	 */
+	public static void moveEverythingDownward() {
+
+
+		//Starts at the end of the 2d array(the last element) and goes backwards through all elements
+		for(int currentRow = ROWS-1; currentRow>=0; currentRow--) {
+			for(int currentColumn= COLUMS-1; currentColumn>=0; currentColumn--) {
+				
+				if(board[currentRow][currentColumn] != 0) {
+					moveCellDownward(currentRow,currentColumn);
+				}
+			}
+		}
+		
+		
+	}
+	
+	/**Recursive method that moves the current cell down
+	 * 
+	 * Moves it down if the cell below it is 0.
+	 * Moves it down and doubles the value if the cell below it equals the current cell.
+	 * Does nothing if the cell below it does not exist(base case) or is a different value than the current cell.
+	 * 
+	 * @param row the row of the current cell
+	 * @param column the column of the current cell
+	 */
+	public static void moveCellDownward(int row, int column) {
+		/*Base case
+		 * If the next cell down does not exist, then stop recursion
+		 */
+		if(row+1 == ROWS) {
+			return;
+		}
+		
+		//preliminary variables	
+		int currentValue = board[row][column];
+		int nextCellDown = board[row+1][column];
+			
+			/*If the next cell down is 0, it replaces that cell
+			 * 
+			 */
+			if(nextCellDown == 0) {
+				board[row+1][column] = currentValue;
+				board[row][column] = 0;
+				moveCellDownward(row+1,column);
+			}
+			
+			/*If the next cell down is a different number, it stops recursion
+			 * 
+			 */
+			if(nextCellDown != currentValue) {
+				return;
+				
+			}
+			
+			/*If the next cell down is equal to the current cell, it doubles the value and replaces the cell 
+			 * 
+			 */
+			if(nextCellDown == currentValue) {
+				board[row][column] = 0;
+				board[row+1][column] *= 2;
+				moveCellDownward(row+1,column);
+			}
+		
+		
+	}
+	
+
 	
 	
 	
