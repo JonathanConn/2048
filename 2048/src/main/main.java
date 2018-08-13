@@ -13,14 +13,26 @@ import java.util.*;
  */
 public class main {
 	//declaring the board 4x4 
-	public static int rows = 4, columns = 4;
-	public static int[][] board = new int[rows][columns];
+	public static final int ROWS = 4, COLUMS = 4;
+	public static int[][] board = new int[ROWS][COLUMS];
 	
 	
 	public static void main(String[] args) {
-		printArray(board);
 		addNum();
-	
+		printArray(board);
+		Scanner scan = new Scanner(System.in);
+		do {
+			System.out.println("Type '1' to add another cell");
+			System.out.println("Type '2'to stop ");
+			
+			if(scan.nextLine().equals("1")) {
+				addNum();
+				printArray(board);
+			}else {
+				break;
+			}
+			
+		}while(true);
 	}
 	/** Randomly generates and integer that is 2 or 4
 	 * 
@@ -63,8 +75,8 @@ public class main {
 	 * @param array The board in array form
 	 */
 	public static void printArray(int[][] array) {
-		for(int i = 0; i < rows; i++) {
-			for( int j = 0; j < columns; j++) {
+		for(int i = 0; i < ROWS; i++) {
+			for( int j = 0; j < COLUMS; j++) {
 				System.out.print(array[i][j]+" ");
 			}
 			System.out.print("\n");
