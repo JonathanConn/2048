@@ -1,5 +1,5 @@
 package main;
-
+//test
 public class main {
 	//declaring the board 4x4 
 	public static int rows = 4, columns = 4;
