@@ -20,6 +20,7 @@ public class main {
 	public static void main(String[] args) {
 		printArray(board);
 		addNum();
+	
 	}
 	/** Randomly generates and integer that is 2 or 4
 	 * 
@@ -31,8 +32,10 @@ public class main {
 		else newNumber = 4;
 		return newNumber;
 	}
-	/**Picks a random spot on the game board to add a new 2 or 4
-	 * 
+	
+	/**Generates a new default cell 
+	 * A cell is a integer on the game board.
+	 *  A default cell is a random integer either 2 or 4
 	 */
 	public static void addNum() {
 		boolean succuss = false;
