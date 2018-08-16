@@ -1,6 +1,5 @@
 
 package main;
-//test
 
 import java.util.*;
 /**Simulates the famous "2048" game
@@ -25,28 +24,25 @@ public class main {
 		
 		Scanner scan = new Scanner(System.in);
 		do {
-			System.out.println("Type '1' to add another cell");
-			System.out.println("Type '2'to move up ");
-			System.out.println("Type '3'to move down");
-			System.out.println("Type '4'to move left");
-			System.out.println("Type '5'to move right");
-			System.out.println("Type '6'to stop");
+			System.out.println("Type '1'to move up ");
+			System.out.println("Type '2'to move down");
+			System.out.println("Type '3'to move left");
+			System.out.println("Type '4'to move right");
+			System.out.println("Type '5'to stop");
 			
 			
 			String input = scan.nextLine();
+		
 			if(input.equals("1")) {
-				addNum();
-				printArray(board);
-			}else if(input.equals("2")) {
 				moveEverything(direction.UP);
 				printArray(board);
-			}else if(input.equals("3")) {
+			}else if(input.equals("2")) {
 				moveEverything(direction.DOWN);
 				printArray(board);
-			}else if(input.equals("4")) {
+			}else if(input.equals("3")) {
 				moveEverything(direction.LEFT);
 				printArray(board);
-			}else if(input.equals("5")) {
+			}else if(input.equals("4")) {
 				moveEverything(direction.RIGHT);
 				printArray(board);
 			}else {
@@ -97,33 +93,85 @@ public class main {
 		
 		boolean isApplicableDirection = false;
 
-		/*If the direction is down or left
+		/*If the direction is down
 		*Starts at the end of the 2d array(the last element) and goes backwards through all elements
 		*moves every cell down or right, depending on desired direction
 		*/
-		if(where.equals(direction.DOWN) || where.equals(direction.LEFT)) {
+		if(where.equals(direction.DOWN)) {
+			for(int currentColumn= COLUMNS-1; currentColumn>=0; currentColumn--) {
+				
+				do {
+				for(int currentRow = ROWS-1; currentRow>=0; currentRow--){
+					
+					if(board[currentRow][currentColumn] != 0) {
+						isApplicableDirection = moveCell(currentRow,currentColumn,where,isApplicableDirection);
+					}
+					
+				}
+				}while(!checkRoworColumn(currentColumn,where));
+				
+				
+				
+			}
+		}
+		
+		/*If the direction is  left
+		*Starts at the end of the 2d array(the last element) and goes backwards through all elements
+		*moves every cell down or right, depending on desired direction
+		*/
+		else if(where.equals(direction.LEFT)) {
 			for(int currentRow = ROWS-1; currentRow>=0; currentRow--) {
-				for(int currentColumn= COLUMNS-1; currentColumn>=0; currentColumn--) {
+				do {
+					for(int currentColumn= COLUMNS-1; currentColumn>=0; currentColumn--) {
+						
+						if(board[currentRow][currentColumn] != 0) {
+							isApplicableDirection = moveCell(currentRow,currentColumn,where,isApplicableDirection);
+						}
+						
+					}
+				}while(!checkRoworColumn(currentRow,where)); 
+				
+				
+				
+			}
+		}
+		
+		
+		
+		
+		/*If the direction is up
+		*Starts at the beginning of the 2d array (the first element) and goes forward through all elements
+		*moves every cell up or left, depending on desired direction
+		*/
+		else if(where.equals(direction.UP)) {
+			 for(int currentColumn= 0; currentColumn<COLUMNS; currentColumn++){
+				
+				do {
+				 for(int currentRow = 0; currentRow<ROWS; currentRow++) {
 					
 					if(board[currentRow][currentColumn] != 0) {
 						isApplicableDirection = moveCell(currentRow,currentColumn,where,isApplicableDirection);
 					}
 				}
-			}
+				
+			}while(!checkRoworColumn(currentColumn,where)); 
+		}
 		}
 		
-		/*If the direction is up or right
+		/*If the direction is  right
 		*Starts at the beginning of the 2d array (the first element) and goes forward through all elements
 		*moves every cell up or left, depending on desired direction
 		*/
-		else if(where.equals(direction.UP) || where.equals(direction.RIGHT)) {
+		else if(where.equals(direction.RIGHT)) {
 			for(int currentRow = 0; currentRow<ROWS; currentRow++) {
+				do {
 				for(int currentColumn= 0; currentColumn<COLUMNS; currentColumn++) {
 					
 					if(board[currentRow][currentColumn] != 0) {
 						isApplicableDirection = moveCell(currentRow,currentColumn,where,isApplicableDirection);
 					}
 				}
+				}while(!checkRoworColumn(currentRow,where)); 
 			}
 		}
 		
@@ -326,6 +374,51 @@ public class main {
 		
 	}
 	
+	/**Checks if a specified row or column has been properly moved
+	 * 
+	 * @param row the specified row
+	 * @param d the direction the user is moving
+	 * @return true if the row has been properly moved
+	 */
+	public static boolean checkRoworColumn(int rowOrColumn, direction d) {
+		if(d.equals(direction.RIGHT)) {
+		for(int i = 0; i<board[rowOrColumn].length-1;i++) {
+			
+				if(board[rowOrColumn][i]>0 && board[rowOrColumn][i+1] == 0) {
+					return false;
+				}
+			}
+		}
+			
+			if(d.equals(direction.LEFT)) {
+				for(int i=COLUMNS-1; i>=1; i--) {
+					
+					if(board[rowOrColumn][i]>0 && board[rowOrColumn][i-1] == 0) {
+						return false;
+					}
+				}
+		}
+		
+			if(d.equals(direction.UP)) {
+				for(int i =COLUMNS-1; i>=1; i--) {
+					if(board[i][rowOrColumn]>0 && board[i-1][rowOrColumn] == 0) {
+						return false;
+					}
+				}
+			}
+			
+			if(d.equals(direction.DOWN)) {
+				for(int i = 0; i<board[rowOrColumn].length-1;i++) {
+					
+						if(board[i][rowOrColumn]>0 && board[i+1][rowOrColumn] == 0) {
+							return false;
+						}
+					}
+				}
+		
+		return true;
+	}
+	
 
 	
 	
@@ -342,6 +435,11 @@ public class main {
 			System.out.print("\n");
 		}
 	}
+	
+	public static void clearScreen() {  
+	    System.out.print("\033[H\033[2J");  
+	    System.out.flush();  
+	}  
 	
 	
 	
