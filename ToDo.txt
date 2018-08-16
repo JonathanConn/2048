@@ -1,13 +1,13 @@
 V1 console only
 
 -add num 2-4 -> Done
--functionality for sliding
-	-horizontal sliding
-	-vertical sliding -> Halfway done (only downward sliding done)
-	-combine when sliding
-		-left
-		-right
-		-up
+-functionality for sliding -> Done
+	-horizontal sliding -> Done
+	-vertical sliding -> Done
+	-combine when sliding -> Done
+		-left -> Done
+		-right -> Done
+		-up -> Done
 		-down -> Done
 
 -winning screen
