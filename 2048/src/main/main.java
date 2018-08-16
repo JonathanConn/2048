@@ -16,6 +16,7 @@ public class main {
 	//declaring the board 4x4 
 	public static final int ROWS = 4, COLUMNS = 4;
 	public static int[][] board = new int[ROWS][COLUMNS];
+	public static Integer score = 0;
 	
 	
 	public static void main(String[] args) {
@@ -233,6 +234,7 @@ public class main {
 					isValid = true;
 					board[row][column] = 0;
 					board[row+1][column] *= 2;
+					score+= currentValue*2;
 					return moveCell(row+1,column,where,isValid);
 				}
 		}
@@ -275,6 +277,7 @@ public class main {
 				isValid = true;
 				board[row-1][column] *= 2;
 				board[row][column] = 0;
+				score+= currentValue*2;
 				return moveCell(row-1,column,where,isValid);
 			}
 			
@@ -319,6 +322,7 @@ public class main {
 					isValid = true;
 					board[row][column-1] *= 2;
 					board[row][column] = 0;
+					score+= currentValue*2;
 					return moveCell(row,column-1,where,isValid);
 				}
 			
@@ -363,6 +367,7 @@ public class main {
 					isValid = true;
 					board[row][column+1] *= 2;
 					board[row][column] = 0;
+					score+= currentValue*2;
 					return moveCell(row,column+1,where,isValid);
 				}
 			
@@ -434,6 +439,9 @@ public class main {
 			}
 			System.out.print("\n");
 		}
+		
+		System.out.println("Your current score is: " + score );
+		System.out.println();
 	}
 	
 	public static void clearScreen() {  

@@ -11,5 +11,5 @@ V1 console only
 		-down -> Done
 
 -winning screen
--score tracker 
+-score tracker -> Done
 
