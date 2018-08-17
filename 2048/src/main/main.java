@@ -19,38 +19,42 @@ public class main {
 	
 	
 	public static void main(String[] args) {
-		addNum();
-		printArray(board);
 		
-		Scanner scan = new Scanner(System.in);
-		do {
-			System.out.println("Type '1'to move up ");
-			System.out.println("Type '2'to move down");
-			System.out.println("Type '3'to move left");
-			System.out.println("Type '4'to move right");
-			System.out.println("Type '5'to stop");
-			
-			
-			String input = scan.nextLine();
+		Gui g = new Gui();
+		g.callStart();
 		
-			if(input.equals("1")) {
-				moveEverything(direction.UP);
-				printArray(board);
-			}else if(input.equals("2")) {
-				moveEverything(direction.DOWN);
-				printArray(board);
-			}else if(input.equals("3")) {
-				moveEverything(direction.LEFT);
-				printArray(board);
-			}else if(input.equals("4")) {
-				moveEverything(direction.RIGHT);
-				printArray(board);
-			}else {
-				break;
-			}
-			
-		}while(true);
-		scan.close();
+//		addNum();
+//		printArray(board);
+//		
+//		Scanner scan = new Scanner(System.in);
+//		do {
+//			System.out.println("Type '1'to move up ");
+//			System.out.println("Type '2'to move down");
+//			System.out.println("Type '3'to move left");
+//			System.out.println("Type '4'to move right");
+//			System.out.println("Type '5'to stop");
+//			
+//			
+//			String input = scan.nextLine();
+//		
+//			if(input.equals("1")) {
+//				moveEverything(direction.UP);
+//				printArray(board);
+//			}else if(input.equals("2")) {
+//				moveEverything(direction.DOWN);
+//				printArray(board);
+//			}else if(input.equals("3")) {
+//				moveEverything(direction.LEFT);
+//				printArray(board);
+//			}else if(input.equals("4")) {
+//				moveEverything(direction.RIGHT);
+//				printArray(board);
+//			}else {
+//				break;
+//			}
+//			
+//		}while(true);
+//		scan.close();
 	}
 	/** Randomly generates and integer that is 2 or 4
 	 * 
