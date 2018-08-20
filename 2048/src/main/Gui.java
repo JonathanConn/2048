@@ -16,18 +16,13 @@ public class Gui extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-//        Button btn = new Button();
-//        btn.setText("Say 'Hello World'");
-//        btn.setOnAction(new EventHandler<ActionEvent>() {
-// 
-//            @Override
-//            public void handle(ActionEvent event) {
-//                System.out.println("Hello World!");
-//            }
-//        });
+        Button btn = new Button();
+        btn.setText("Say 'Hello World'");
+        //lamda expression
+        btn.setOnAction(e -> System.out.println("test"));
         
         StackPane root = new StackPane();
-//    root.getChildren().add(btn);
+        root.getChildren().add(btn);
 
         Scene scene = new Scene(root, 500, 500);
         
