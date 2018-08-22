@@ -24,7 +24,7 @@ public class Cell {
 	 * 
 	 * @param newVal the new value of the cell
 	 */
-	public void changeValue(int newVal) {
+	public void setValue(int newVal) {
 		value = newVal;
 	}
 	
