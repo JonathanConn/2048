@@ -25,6 +25,7 @@ public class main {
 		
 		Scanner scan = new Scanner(System.in);
 		do {
+			System.out.println("Try to get a score of 2048!");
 			System.out.println("Type '1'to move up ");
 			System.out.println("Type '2'to move down");
 			System.out.println("Type '3'to move left");
