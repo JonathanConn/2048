@@ -445,6 +445,10 @@ public class main {
 	    System.out.flush();  
 	}  
 	
+	public static int[][] getBoard(){
+		return board;
+	}
+	
 	
 	
 }
