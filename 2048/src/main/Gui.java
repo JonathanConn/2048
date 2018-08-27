@@ -10,6 +10,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene; 
 import javafx.scene.control.Button; 
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text; 
 import javafx.scene.control.TextField; 
@@ -19,7 +20,7 @@ import javafx.stage.Stage;
 public class Gui extends Application {
     
     public static GridPane gridPane = new GridPane();   
-    main mainOBJ = new main();
+    static main mainOBJ = new main();
 	
     @Override
     public void start(Stage stage) {
@@ -28,8 +29,8 @@ public class Gui extends Application {
          
         gridPane.setPadding(new Insets(10, 10, 10, 10)); 
         
-        gridPane.setVgap(5); 
-        gridPane.setHgap(5);       
+        gridPane.setVgap(50); 
+        gridPane.setHgap(50);       
         
         gridPane.setAlignment(Pos.CENTER); 
                         
@@ -38,7 +39,6 @@ public class Gui extends Application {
         	
         	updateGrid(mainOBJ.getBoard());
         	mainOBJ.moveEverything(direction.LEFT);
-        	mainOBJ.addNum();
         });
         
         Button buttonRIGHT = new Button("right");
@@ -46,26 +46,27 @@ public class Gui extends Application {
         
         	mainOBJ.moveEverything(direction.RIGHT);
         	updateGrid(mainOBJ.getBoard());
-        	mainOBJ.addNum();
         });
         
         Button buttonUP = new Button("up");
         buttonUP.setOnAction((event) -> {
         	mainOBJ.moveEverything(direction.UP);
         	updateGrid(mainOBJ.getBoard());
-        	mainOBJ.addNum();
         });
+        
         Button buttonDOWN = new Button("down");
         buttonDOWN.setOnAction((event) -> {
         	mainOBJ.moveEverything(direction.DOWN);
         	updateGrid(mainOBJ.getBoard());
-        	mainOBJ.addNum();
         });
         
-        VBox  vbox = new VBox();
+        HBox hbox = new HBox();
+        ObservableList list2 = hbox.getChildren();
+        list2.addAll(buttonLEFT,buttonRIGHT,buttonDOWN,buttonUP);
         
+        VBox  vbox = new VBox();
         ObservableList list = vbox.getChildren();
-        list.addAll(gridPane,buttonLEFT,buttonRIGHT,buttonDOWN,buttonUP);
+        list.addAll(gridPane,hbox);
         
         Scene scene = new Scene(vbox);  
         
@@ -97,6 +98,8 @@ public class Gui extends Application {
         gridPane.add(new Text(Integer.toString(boardData[3][2])), 2, 3); 
         gridPane.add(new Text(Integer.toString(boardData[3][3])), 3, 3); 
         
+        gridPane.setStyle("-fx-font: 30 arial;");
+        mainOBJ.addNum();
     }
     
     
