@@ -32,9 +32,32 @@ public class Gui extends Application {
         gridPane.setHgap(5);       
         
         gridPane.setAlignment(Pos.CENTER); 
-                
-        Button button1 = new Button("update");
-        button1.setOnAction((event) -> {
+                        
+        Button buttonLEFT = new Button("left");
+        buttonLEFT.setOnAction((event) -> {
+        	
+        	updateGrid(mainOBJ.getBoard());
+        	mainOBJ.moveEverything(direction.LEFT);
+        	mainOBJ.addNum();
+        });
+        
+        Button buttonRIGHT = new Button("right");
+        buttonRIGHT.setOnAction((event) -> {
+        
+        	mainOBJ.moveEverything(direction.RIGHT);
+        	updateGrid(mainOBJ.getBoard());
+        	mainOBJ.addNum();
+        });
+        
+        Button buttonUP = new Button("up");
+        buttonUP.setOnAction((event) -> {
+        	mainOBJ.moveEverything(direction.UP);
+        	updateGrid(mainOBJ.getBoard());
+        	mainOBJ.addNum();
+        });
+        Button buttonDOWN = new Button("down");
+        buttonDOWN.setOnAction((event) -> {
+        	mainOBJ.moveEverything(direction.DOWN);
         	updateGrid(mainOBJ.getBoard());
         	mainOBJ.addNum();
         });
@@ -42,7 +65,7 @@ public class Gui extends Application {
         VBox  vbox = new VBox();
         
         ObservableList list = vbox.getChildren();
-        list.addAll(gridPane, button1);
+        list.addAll(gridPane,buttonLEFT,buttonRIGHT,buttonDOWN,buttonUP);
         
         Scene scene = new Scene(vbox);  
         
