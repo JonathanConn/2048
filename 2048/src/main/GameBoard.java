@@ -172,7 +172,7 @@ public class GameBoard {
 						isApplicableDirection = moveCell(currentRow,currentColumn,where,isApplicableDirection);
 					}
 				}
-				}while(!checkRoworColumn(currentRow,where)); 
+				}while(!checkRoworColumn(currentRow,where));
 			}
 		}
 		
@@ -262,6 +262,7 @@ public class GameBoard {
 			 * 
 			 */
 			if(nextCellUp != currentValue) {
+				
 				return isValid;
 			}
 			

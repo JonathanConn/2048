@@ -13,14 +13,14 @@ package main;
  */
 public class Cell {
 	
-	// the value associated with the cecll
+	// the value associated with the cell
 	private Integer value;
 	
 	public Cell() {
 		value = 0;
 	}
 	
-	/**Changes the number value of the cell
+	/**Changes the numerical value of the cell
 	 * 
 	 * @param newVal the new value of the cell
 	 */
@@ -28,6 +28,10 @@ public class Cell {
 		value = newVal;
 	}
 	
+	/**gets the current numerical value of the cell
+	 * 
+	 * @return
+	 */
 	public int getValue() {
 		return value;
 	}

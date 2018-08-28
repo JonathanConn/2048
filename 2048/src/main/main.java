@@ -46,8 +46,10 @@ public class main {
 			}else if(input.equals("4")) {
 				board.moveEverything(direction.RIGHT);
 				System.out.println(board);
-			}else {
+			}else if(input.equals("5")){	
 				break;
+			}else {
+				System.out.println("This is an invalid command");
 			}
 			
 		}while(true);
